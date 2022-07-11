@@ -2,6 +2,8 @@ import cv2
 import time
 from HandTrackModule import HandDet
 import numpy as np
+import math
+import pyautogui as pg
 
 
 def main():
@@ -10,17 +12,21 @@ def main():
 
     while True:
         success, img = cap.read()
-        img = detector.find_hands(img)  # add draw = False if u don't want to draw dots and connections
-
-
-        lms_list = detector.find_dots(img)  # add draw = True if u want to highlight dot
+        img = detector.find_hands(img)
+        lms_list = detector.find_dots(img)
         if len(lms_list) != 0:
-            print(lms_list[4])
+            x4, y4 = lms_list[4][1], lms_list[4][2]
+            x8, y8 = lms_list[8][1], lms_list[8][2]
+            #pg.moveTo(x8 * 3, y8 * 3 )
             if lms_list[4][2] > 450:
                 break
-            elif lms_list[8][1] > 320:
-                cv2.circle(img, (lms_list[8][1], lms_list[8][2]), 10, (255, 0, 255), cv2.FILLED)
+            elif x8 > 0:
 
+                #pg.moveTo(pg.position().x + x_dif, pg.position().y + y_dif)
+                pg.moveTo(x8*3, y8*3)
+            elif math.hypot(x8-x4, y8-y4) < 11:
+                print("done")
+        #cv2.rectangle(img, (300, 200), (380, 400), (255, 0, 255), 1)
         cv2.line(img, (0, 450), (640, 450), (255, 0, 255), 1)
         cv2.putText(img, "off zone", (240, 475), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 255), 1)
         cv2.imshow("Image", img)

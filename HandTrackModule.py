@@ -42,3 +42,4 @@ class HandDet:
                     cv2.circle(img, (cx, cy), 10, (255, 0, 255), cv2.FILLED)
 
         return self.lms_list  # you can return positions for any dot check line 38
+
