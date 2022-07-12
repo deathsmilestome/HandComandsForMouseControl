@@ -6,7 +6,7 @@ https://github.com/deathsmilestome/CVHandTrackModule
 <br>
 ![image](https://user-images.githubusercontent.com/80523414/178558222-a294c93d-c4e0-489b-a468-3530fd1e5d0b.png)
 ### Direct control
-This is a way of controlling the mouse with your hand, where the position of the cursor depends directly on the position of your hand.<br>
+This is a way of controlling the mouse with your hand, where the position of the cursor depends directly on the position of your hand in cam's FoV.<br>
 - cursor - index finger MCP[5]
 - freeze cursor - thumb tip[4] + index finger MCP[5] clenched
 - left click - you have to freeze it first then index finger[8] + midle finger tip[12] clenched
