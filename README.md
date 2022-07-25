@@ -1,4 +1,4 @@
-# HandComandsFromVideo
+# HandComandsForMouseControl
 
 ## About 
 This is an implementation of the hand tracking module for mouse control. There are two variations in the project: controller and direct control.
